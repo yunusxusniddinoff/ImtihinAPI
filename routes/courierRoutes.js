@@ -4,7 +4,7 @@ const authMiddleware = require("../middlewares/authMiddleware")
 const roleMiddleware = require('../middlewares/roleMiddleware')
 const courierController = require("../controller/courierController")
 
-router.get("/courier", authMiddleware, courierController.getCouriers)
+router.get("/courier", courierController.getCouriers)
 
 router.post("/courier", authMiddleware, roleMiddleware("admin"), courierController.createCourier)
 
