@@ -10,15 +10,17 @@ connectDB()
 
 app.use(express.json())
 
+app.use(cors({
+    origin: ["http://localhost:5173"]
+}))
+
 app.use("/api", userRouter)
 
 app.use("/api", courierRouter)
 
 app.use("/api", orderRouter)
 
-app.use(cors({
-    origin: ["http://localhost:5173"]
-}))
+
 
 
 app.listen(process.env.PORT, () => {console.log(`Server ${process.env.PORT} da ishlamoqda`)})
