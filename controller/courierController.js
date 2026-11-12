@@ -8,9 +8,8 @@ exports.getCouriers = async (req, res) => {
     try {
         const couriers = await Courier.find()
 
-        res.json({
-            message: couriers
-        })
+        res.json(
+            couriers)
     } catch (error) {
         console.log(error)
 
