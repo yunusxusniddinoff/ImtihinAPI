@@ -4,6 +4,7 @@ const app = express()
 const userRouter = require("./routes/userRoutes")
 const courierRouter = require("./routes/courierRoutes")
 const orderRouter = require("./routes/orderRoutes")
+const cors = require("cors")
 
 connectDB()
 
@@ -14,6 +15,10 @@ app.use("/api", userRouter)
 app.use("/api", courierRouter)
 
 app.use("/api", orderRouter)
+
+app.use(cors({
+    origin: ["http://localhost:5173"]
+}))
 
 
 app.listen(process.env.PORT, () => {console.log(`Server ${process.env.PORT} da ishlamoqda`)})
